@@ -9,22 +9,29 @@ import webpack from 'webpack'
 import config from './webpack.config'
 import {resolve} from 'path'
 import styleSheet from 'styled-components/lib/models/StyleSheet'
+import chokidar from 'chokidar'
 
 const compiler = webpack(config)
 
 loading('PAGES', 'Defining routes...')
 let pages = {}
-const files = fs.readdirSync('./pages')
 
-files.filter(file => file.endsWith('.js'))
-.map(file => pages[file.replace('.js', '')] = require(resolve(`./pages/${file}`)))
-
-compiler.plugin('done', () => {
-  files.map(file => {
+const getPages = path => {
+  if (path) {
+    console.log(path)
+    clearRequire(resolve(path))
+  }
+  const files = fs.readdirSync('./pages')
+  files.filter(file => file.endsWith('.js'))
+  .map(file => {
     clearRequire(resolve(`./pages/${file}`))
     pages[file.replace('.js', '')] = require(resolve(`./pages/${file}`))
   })
-})
+}
+getPages()
+
+let watcher = chokidar.watch('**/*.js', {ignored: 'node_modules'})
+watcher.on('change', getPages).on('unlink', getPages)
 
 const server = express()
 

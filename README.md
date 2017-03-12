@@ -7,7 +7,7 @@
 
 &nbsp;
 
-### minimal setup 
+### minimal setup
 ```
 npm install reaqt --save
 ```
@@ -66,7 +66,13 @@ export default class extends React.Component {
 
 ### components
 
-Make components as usual, styles get rendered on the server if you use [styled-components](https://github.com/styled-components/styled-components).
+the usual, nothing special here.
+
+&nbsp;
+
+### styling
+
+Comes with [styled-components](https://github.com/styled-components/styled-components) which gets rendered on the server.
 
 &nbsp;
 

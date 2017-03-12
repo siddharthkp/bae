@@ -7,12 +7,11 @@
 
 &nbsp;
 
-### Usage 
+### minimal setup 
 ```
 npm install reaqt --save
 ```
 
-&nbsp;
 
 Add these 2 lines in your `package.json`
 

@@ -1,6 +1,9 @@
-module.exports = (body, page) => `
+module.exports = (body, styles, page) => `
   <!DOCTYPE html>
   <html>
+    <head>
+      <style>${styles}</style>
+    </head>
     <body>
       <div id="root">${body}</div>
     </body>

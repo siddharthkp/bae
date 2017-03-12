@@ -8,6 +8,7 @@ import webpack from 'webpack'
 import config from './webpack.config'
 import {loading, info} from 'prettycli'
 import {resolve} from 'path'
+import styleSheet from 'styled-components/lib/models/StyleSheet'
 
 const compiler = webpack(config)
 
@@ -33,7 +34,8 @@ compiler.run(() => {
     if (pages[page]) {
       const Page = pages[page].default
       const appString = renderToString(<Page/>)
-      res.send(template(appString, page))
+      const styles = styleSheet.rules().map(rule => rule.cssText).join('\n')
+      res.send(template(appString, styles, page))
     } else res.status(404).end()
   })
 

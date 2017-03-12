@@ -1,0 +1,29 @@
+{
+  "name": "reaqt",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "bin": "index.js",
+  "scripts": {
+    "test": "eslint ."
+  },
+  "keywords": [],
+  "author": "siddharthkp",
+  "license": "MIT",
+  "dependencies": {
+    "clear-require": "2.0.0",
+    "compression": "1.6.2",
+    "express": "4.14.1",
+    "prettycli": "1.0.1",
+    "react": "15.4.2",
+    "react-dom": "15.4.2",
+    "react-hot-loader": "3.0.0-beta.6",
+    "webpack": "2.2.1",
+    "webpack-dev-server": "2.3.0",
+    "webpack-hot-middleware": "2.17.1",
+    "webpack-node-externals": "1.5.4"
+  },
+  "devDependencies": {
+    "eslint": "3.16.0"
+  }
+}

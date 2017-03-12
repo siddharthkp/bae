@@ -1,0 +1,12 @@
+{
+  "name": "reaqt-example",
+  "scripts": {
+    "dev": "reaqt dev",
+    "start": "reaqt"
+  },
+  "author": "siddharthkp",
+  "license": "MIT",
+  "dependencies": {
+    "reaqt": "0.0.1"
+  }
+}

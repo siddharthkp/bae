@@ -1,13 +1,26 @@
 {
   "name": "reaqt",
   "version": "1.0.0",
-  "description": "",
+  "description": "react made easy",
   "main": "index.js",
   "bin": "index.js",
   "scripts": {
     "test": "eslint ."
   },
-  "keywords": [],
+  "keywords": [
+    "react",
+    "easy",
+    "server rendering",
+    "ssr",
+    "code splitting",
+    "hot module replacement"
+  ],
+  "files": [
+    "dev",
+    "prod",
+    "utils",
+    "index.js"
+  ],
   "author": "siddharthkp",
   "license": "MIT",
   "dependencies": {
@@ -18,6 +31,7 @@
     "react": "15.4.2",
     "react-dom": "15.4.2",
     "react-hot-loader": "3.0.0-beta.6",
+    "styled-components": "1.4.4",
     "webpack": "2.2.1",
     "webpack-dev-server": "2.3.0",
     "webpack-hot-middleware": "2.17.1",

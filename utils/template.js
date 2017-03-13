@@ -1,7 +1,8 @@
-module.exports = (body, styles, page) => `
+module.exports = (body, styles, state, page) => `
   <!DOCTYPE html>
   <html>
     <head>
+      <script>window.INITIAL_STATE = ${state}</script>
       <style>${styles}</style>
     </head>
     <body>

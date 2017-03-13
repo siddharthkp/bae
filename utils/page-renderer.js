@@ -4,13 +4,13 @@ module.exports = path => `
   import Page from '${path}'
 
   render(
-    <Page/>,
+    <Page {...window.INITIAL_STATE}/>,
     document.getElementById('root')
   );
 
   if (module.hot) {
     module.hot.accept('${path}', () => {
-      render(<Page/>, document.getElementById('root'))
+      render(<Page {...window.INITIAL_STATE}/>, document.getElementById('root'))
     });
   }
 `

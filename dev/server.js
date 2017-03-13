@@ -103,7 +103,7 @@ const getInstance = config => {
       }
 
       /* render html page */
-      res.send(template(component, styles, route))
+      res.send(template(component, styles, JSON.stringify({req: props}), route))
     } else res.status(404).end()
   })
 

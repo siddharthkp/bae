@@ -40,7 +40,7 @@ Make pages like it's the 90s.
 
 - `pages/home.js` renders the homepage `/`
 
-- [but, why?](https://rauchg.com/2014/7-principles-of-rich-web-applications#server-rendered-pages-are-not-optional)
+- [why, you ask?](https://rauchg.com/2014/7-principles-of-rich-web-applications#server-rendered-pages-are-not-optional)
 
 &nbsp;
 

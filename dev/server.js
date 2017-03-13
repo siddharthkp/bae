@@ -27,7 +27,7 @@ const generateTree = files => files.map(file => tree[file] = dependencyTree.toLi
 let pages = {}
 const getPages = () => {
   const files = fs.readdirSync('./pages')
-  files.filter(file => file.endsWith('.js'))
+  files.filter(file => file.endsWith('.js')).filter(file => !file.endsWith('.test.js'))
   .map(file => pages[file.replace('.js', '')] = require(resolve(`./pages/${file}`)))
   generateTree(files)
 }

@@ -24,7 +24,7 @@ compiler.run(() => {
   /* generate pages cache */
   let pages = {}
   const files = fs.readdirSync('./pages')
-  files.filter(file => file.endsWith('.js'))
+  files.filter(file => file.endsWith('.js')).filter(file => !file.endsWith('.test.js'))
   .map(file => pages[file.replace('.js', '')] = require(resolve(`./pages/${file}`)))
 
   /* create an express server */

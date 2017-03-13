@@ -53,8 +53,6 @@ const uncache = path => {
 
 const getInstance = config => {
 
-  console.log(config)
-
   /* create an express instance */
   const instance = express()
 

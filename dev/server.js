@@ -11,27 +11,42 @@ import {resolve} from 'path'
 import styleSheet from 'styled-components/lib/models/StyleSheet'
 import chokidar from 'chokidar'
 
+var dependencyTree = require('dependency-tree')
+
 const compiler = webpack(config)
 
 loading('PAGES', 'Defining routes...')
 let pages = {}
+let tree = {}
 
-const getPages = path => {
-  if (path) {
-    console.log(path)
-    clearRequire(resolve(path))
-  }
+const generateTree = files => files.map(file => tree[file] = dependencyTree.toList({
+  filename: resolve(`./pages/${file}`),
+  directory: '/'
+}))
+
+const getPages = () => {
   const files = fs.readdirSync('./pages')
   files.filter(file => file.endsWith('.js'))
-  .map(file => {
-    clearRequire(resolve(`./pages/${file}`))
-    pages[file.replace('.js', '')] = require(resolve(`./pages/${file}`))
-  })
+  .map(file => pages[file.replace('.js', '')] = require(resolve(`./pages/${file}`)))
+  generateTree(files)
 }
 getPages()
 
+const uncache = path => {
+  const roots = Object.keys(tree)
+  roots.map(root => {
+    const index = tree[root].indexOf(resolve(path))
+    if (index !== -1) {
+      const stale = tree[root].slice(index)
+      stale.map(component => clearRequire(resolve(component)))
+    }
+  })
+  /* Create pages again */
+  getPages()
+}
+
 let watcher = chokidar.watch('**/*.js', {ignored: 'node_modules'})
-watcher.on('change', getPages).on('unlink', getPages)
+watcher.on('change', uncache).on('unlink', uncache)
 
 const server = express()
 

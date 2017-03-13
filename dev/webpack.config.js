@@ -1,4 +1,5 @@
 import webpack from 'webpack'
+import {resolve} from 'path'
 import babelOptions from './babel.json'
 import pages from '../utils/pages'
 
@@ -8,7 +9,7 @@ keys.map(key => pages[key] = [pages[key], 'webpack-hot-middleware/client'])
 module.exports = {
   cache: true,
   entry: pages,
-  output: {filename: '[name].js', path: '.build/dist', publicPath: '/build'},
+  output: {filename: '[name].js', path: resolve(__dirname, '.build/dist'), publicPath: '/build'},
   module: {rules: [{test: /\.js?$/, loader: 'babel-loader', options: babelOptions}]},
   devtool: 'cheap-module-source-map',
   devServer: {hot: true},

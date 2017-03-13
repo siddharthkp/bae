@@ -53,7 +53,13 @@ compiler.run(() => {
       const component = renderToString(<Page/>)
 
       /* get styles */
-      const styles = styleSheet.rules().map(rule => rule.cssText).join('\n')
+      let styles
+      try {
+        /* This breaks when there are no styled-components in your code */
+        styles = styleSheet.rules().map(rule => rule.cssText).join('\n')
+      } catch (error) {
+        styles = ''
+      }
 
       /* render html page */
       res.send(template(component, styles, route))

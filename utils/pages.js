@@ -1,6 +1,6 @@
 import glob from 'glob'
 import {resolve, basename, extname} from 'path'
-import fs from 'fs'
+import fs from 'fs-extra'
 import pageRenderer from './page-renderer'
 
 module.exports = ({hot}) => {
@@ -8,6 +8,7 @@ module.exports = ({hot}) => {
   /* create .build and .build/pages */
   if (!fs.existsSync('./.build')) fs.mkdirSync('./.build')
   if (!fs.existsSync('./.build/pages')) fs.mkdirSync('./.build/pages')
+  fs.emptyDirSync('./.build/pages')
 
   /* drop renderable pages */
   glob.sync('./pages/*.js')

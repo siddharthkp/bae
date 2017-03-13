@@ -98,6 +98,12 @@ Check out the [example application](https://github.com/siddharthkp/reaqt/tree/ma
 
 &nbsp;
 
+### todo
+
+- easy api for lazy loading components
+
+&nbsp;
+
 ### license
 
 MIT © [siddharthkp](https://github.com/siddharthkp)

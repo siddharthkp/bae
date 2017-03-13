@@ -1,9 +1,11 @@
 {
   "name": "reaqt",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "react made easy",
   "main": "index.js",
   "bin": "index.js",
+  "homepage": "https://github.com/siddharthkp/reaqt#readme",
+  "repository": "siddharthkp/reaqt",
   "scripts": {
     "test": "eslint ."
   },
@@ -42,5 +44,13 @@
   },
   "devDependencies": {
     "eslint": "3.16.0"
+  },
+  "engines": {
+    "node": ">= 6.0.0",
+    "npm": ">= 3.0.0"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/siddharthkp/cost-of-modules/issues"
   }
 }

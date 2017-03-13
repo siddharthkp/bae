@@ -22,7 +22,7 @@ Add these 2 lines in your `package.json`
 }
 ```
 
-Start the dev server with `npm run dev`. You already have server rendering and hot module replacement.
+Start the dev server with `npm run dev`. You just setup server rendering with hot module replacement and hot reload!
 
 &nbsp;
 
@@ -30,7 +30,7 @@ Start the dev server with `npm run dev`. You already have server rendering and h
 
 Make pages like it's the 90s.
 &nbsp;
-- pages are routes: `pages/about` renders the `/about` page
+- pages are routes: `pages/about` renders `/about` of your website
 
 - pages are rendered on the server
 
@@ -38,9 +38,9 @@ Make pages like it's the 90s.
 
 - code shared between pages is served as `common.js` for long term caching
 
-&nbsp;
+- `pages/home.js` renders the homepage `/`
 
-`pages/home.js` the homepage `/`
+&nbsp;
 
 ```js
 import React from 'react'
@@ -60,8 +60,6 @@ export default class extends React.Component {
 
 ```
 
-`/` defaults to `pages/home.js`
-
 &nbsp;
 
 ### components
@@ -72,13 +70,13 @@ the usual, nothing special here.
 
 ### styling
 
-Comes with [styled-components](https://github.com/styled-components/styled-components) which gets rendered on the server.
+comes with [styled-components](https://github.com/styled-components/styled-components) which gets rendered on the server.
 
 &nbsp;
 
-### assets/static
+### static assets
 
-Create a `static` directory to serve images, fonts, etc.
+keep your images, fonts, etc. in a directory named `static`
 
 &nbsp;
 

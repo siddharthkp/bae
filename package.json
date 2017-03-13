@@ -27,6 +27,7 @@
     "chokidar": "1.6.1",
     "clear-require": "2.0.0",
     "compression": "1.6.2",
+    "dependency-tree": "5.9.0",
     "express": "4.14.1",
     "prettycli": "1.0.1",
     "react": "15.4.2",

@@ -42,6 +42,11 @@ compiler.run(() => {
   server.get('*', (req, res) => {
     let route = req.path.replace('/', '')
 
+    const props = {
+      path: req.path,
+      query: req.query
+    }
+
     /* default route */
     if (route === '') route = 'home'
 
@@ -50,7 +55,7 @@ compiler.run(() => {
       const Page = pages[route].default
 
       /* get rendered component from ReactDOM */
-      const component = renderToString(<Page/>)
+      const component = renderToString(<Page req={props}/>)
 
       /* get styles */
       let styles

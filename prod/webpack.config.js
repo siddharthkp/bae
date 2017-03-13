@@ -4,7 +4,7 @@ import pages from '../utils/pages'
 
 module.exports = {
   cache: true,
-  entry: pages,
+  entry: pages(),
   output: {filename: '[name].js', path: '.build/dist'},
   module: {rules: [{test: /\.js?$/, loader: 'babel-loader', options: babelOptions}]},
   plugins: [

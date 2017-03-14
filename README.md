@@ -103,6 +103,7 @@ Check out the [example application](https://github.com/siddharthkp/reaqt/tree/ma
 ### todo
 
 - easy api for lazy loading components
+- server worker support
 - make first build faster
 
 &nbsp;

@@ -26,6 +26,7 @@
   "author": "siddharthkp",
   "license": "MIT",
   "dependencies": {
+    "babel-plugin-transform-object-rest-spread": "6.23.0",
     "chokidar": "1.6.1",
     "clear-require": "2.0.0",
     "compression": "1.6.2",
@@ -49,7 +50,6 @@
     "node": ">= 6.0.0",
     "npm": ">= 3.0.0"
   },
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/siddharthkp/cost-of-modules/issues"
   }

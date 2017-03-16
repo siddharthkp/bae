@@ -42,7 +42,7 @@ compiler.run(() => {
   server.get('*', (req, res) => {
     let route = req.path.replace('/', '')
 
-    const props = {
+    const request = {
       path: req.path,
       query: req.query
     }
@@ -54,20 +54,29 @@ compiler.run(() => {
     if (pages[route]) {
       const Page = pages[route].default
 
-      /* get rendered component from ReactDOM */
-      const component = renderToString(<Page req={props}/>)
+      if (Page.prototype.asyncComponentWillMount) {
+        const pageInstance = new Page({req: request})
+        pageInstance.asyncComponentWillMount()
+        .then(asyncProps => render(asyncProps))
+      } else render();
 
-      /* get styles */
-      let styles
-      try {
-        /* This breaks when there are no styled-components in your code */
-        styles = styleSheet.rules().map(rule => rule.cssText).join('\n')
-      } catch (error) {
-        styles = ''
+      function render (asyncProps = {}) {
+        /* get rendered component from ReactDOM */
+        const component = renderToString(<Page req={request} {...asyncProps}/>)
+
+        /* get styles */
+        let styles
+        try {
+          /* This breaks when there are no styled-components in your code */
+          styles = styleSheet.rules().map(rule => rule.cssText).join('\n')
+        } catch (error) {
+          styles = ''
+        }
+
+        const props = JSON.stringify(Object.assign({}, {req: request}, {...asyncProps}))
+        /* render html page */
+        res.send(template(component, styles, props, route))
       }
-
-      /* render html page */
-      res.send(template(component, styles, JSON.stringify({req: props}), route))
     } else res.status(404).end()
   })
 

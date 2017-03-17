@@ -74,7 +74,7 @@ compiler.run(() => {
 
       /*
         If component has asyncComponentWillMount,
-        fetch data and return them as props
+        fetch data and return it as props
       */
       if (Page.prototype.asyncComponentWillMount) {
         const pageInstance = new Page({req: request})

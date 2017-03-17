@@ -78,7 +78,7 @@ const getInstance = config => {
   instance.get('*', (req, res) => {
     let route = req.path.replace('/', '')
 
-    const props = {
+    const request = {
       path: req.path,
       query: req.query
     }
@@ -92,7 +92,7 @@ const getInstance = config => {
 
       const render = (asyncProps = {}) => {
         /* get rendered component from ReactDOM */
-        const component = renderToString(<Page req={props}/>)
+        const component = renderToString(<Page req={request} {...asyncProps}/>)
 
         /* get styles */
         let styles
@@ -104,12 +104,12 @@ const getInstance = config => {
         }
 
         /* render html page */
-        res.send(template(component, styles, JSON.stringify({req: props}), route))
+        res.send(template(component, styles, JSON.stringify({req: request}), route))
       }
 
       /*
         If component has asyncComponentWillMount,
-        fetch data and return them as props
+        fetch data and return it as props
       */
       if (Page.prototype.asyncComponentWillMount) {
         const pageInstance = new Page({req: request})

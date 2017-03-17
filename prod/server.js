@@ -72,6 +72,10 @@ compiler.run(() => {
         res.send(template(component, styles, props, route))
       }
 
+      /*
+        If component has asyncComponentWillMount,
+        fetch data and return them as props
+      */
       if (Page.prototype.asyncComponentWillMount) {
         const pageInstance = new Page({req: request})
         pageInstance.asyncComponentWillMount()

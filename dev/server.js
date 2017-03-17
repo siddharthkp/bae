@@ -90,20 +90,33 @@ const getInstance = config => {
     if (pages[route]) {
       const Page = pages[route].default
 
-      /* get rendered component from ReactDOM */
-      const component = renderToString(<Page req={props}/>)
+      const render = (asyncProps = {}) => {
+        /* get rendered component from ReactDOM */
+        const component = renderToString(<Page req={props}/>)
 
-      /* get styles */
-      let styles
-      try {
-        /* This breaks when there are no styled-components in your code */
-        styles = styleSheet.rules().map(rule => rule.cssText).join('\n')
-      } catch (error) {
-        styles = ''
+        /* get styles */
+        let styles
+        try {
+          /* This breaks when there are no styled-components in your code */
+          styles = styleSheet.rules().map(rule => rule.cssText).join('\n')
+        } catch (error) {
+          styles = ''
+        }
+
+        /* render html page */
+        res.send(template(component, styles, JSON.stringify({req: props}), route))
       }
 
-      /* render html page */
-      res.send(template(component, styles, JSON.stringify({req: props}), route))
+      /*
+        If component has asyncComponentWillMount,
+        fetch data and return them as props
+      */
+      if (Page.prototype.asyncComponentWillMount) {
+        const pageInstance = new Page({req: request})
+        pageInstance.asyncComponentWillMount()
+        .then(asyncProps => render(asyncProps))
+      } else render()
+
     } else res.status(404).end()
   })
 

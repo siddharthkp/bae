@@ -64,6 +64,36 @@ export default class extends React.Component {
 
 &nbsp;
 
+### asyncComponentWillMount
+
+React has a lifecycle method that get's called on the server `componentWillMount` that can be used to set data for server rendering. But, it [does not support](https://github.com/facebook/react/issues/1739) asynchronous data fetching before rendering the component.
+
+reaqt introduces a new lifecycle method **to pages** that runs only on the server.
+
+```js
+import React from 'react'
+
+export default class extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {username: 'siddharthkp'}
+  }
+  asyncComponentWillMount () {
+    /* 
+      Return a promise.
+      It will get resolved on the server and passed as props to the component.
+    */
+    return axios.get(`https://api.github.com/users/${this.state.username}`)
+  }
+  render () {
+    return <div>{this.props.bio}</div>
+  }
+}
+
+```
+
+&nbsp;
+
 ### components
 
 the usual, nothing special here.

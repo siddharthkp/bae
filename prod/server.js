@@ -54,13 +54,7 @@ compiler.run(() => {
     if (pages[route]) {
       const Page = pages[route].default
 
-      if (Page.prototype.asyncComponentWillMount) {
-        const pageInstance = new Page({req: request})
-        pageInstance.asyncComponentWillMount()
-        .then(asyncProps => render(asyncProps))
-      } else render();
-
-      function render (asyncProps = {}) {
+      const render = (asyncProps = {}) => {
         /* get rendered component from ReactDOM */
         const component = renderToString(<Page req={request} {...asyncProps}/>)
 
@@ -77,6 +71,13 @@ compiler.run(() => {
         /* render html page */
         res.send(template(component, styles, props, route))
       }
+
+      if (Page.prototype.asyncComponentWillMount) {
+        const pageInstance = new Page({req: request})
+        pageInstance.asyncComponentWillMount()
+        .then(asyncProps => render(asyncProps))
+      } else render()
+
     } else res.status(404).end()
   })
 

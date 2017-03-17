@@ -7,6 +7,6 @@
   "author": "siddharthkp",
   "license": "MIT",
   "dependencies": {
-    "reaqt": "1.0.0"
+    "reaqt": "1.1.0"
   }
 }

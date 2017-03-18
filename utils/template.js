@@ -2,6 +2,7 @@ module.exports = (body, styles, props, page) => `
   <!DOCTYPE html>
   <html>
     <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
       <script>window.INITIAL_PROPS = ${props}</script>
       <style>${styles}</style>
     </head>

@@ -103,8 +103,9 @@ const getInstance = config => {
           styles = ''
         }
 
+        const props = JSON.stringify(Object.assign({}, {req: request}, {...asyncProps}))
         /* render html page */
-        res.send(template(component, styles, JSON.stringify({req: request}), route))
+        res.send(template(component, styles, props, route))
       }
 
       /*

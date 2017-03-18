@@ -1,0 +1,17 @@
+{
+  "name": "regithub",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "reaqt dev",
+    "start": "reaqt"
+  },
+  "keywords": [],
+  "author": "siddharthkp",
+  "license": "MIT",
+  "dependencies": {
+    "react-helmet": "4.0.0",
+    "reaqt": "1.2.2"
+  }
+}

@@ -24,13 +24,13 @@ for (let i = 0; i < attempts + 1; i++) {
   // The output is time to first bite : total time taken
   let ttfb = result.stdout.split(':')[0]
   let total = result.stdout.split(':')[1]
-  results.ttfb.push(parseFloat(ttfb) * 1000)
-  results.total.push(parseFloat(total) * 1000)
+  results.ttfb.push(parseInt(parseFloat(ttfb) * 1000, 10))
+  results.total.push(parseInt(parseFloat(total) * 1000, 10))
 }
 
 const average = elements => {
   const sum = elements.reduce((a, b) => parseFloat(a) + parseFloat(b))
-  return (sum / elements.length).toFixed(2)
+  return parseInt(sum/elements.length, 10)
 }
 
 let table = new Table({head: ['run', 'ttfb (ms)', 'total (ms)']})

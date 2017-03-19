@@ -3,7 +3,7 @@ module.exports = (body, styles, props, page) => `
   <html>
     <head>
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <script>window.INITIAL_PROPS = ${props}</script>
+      <script>window.INITIAL_PROPS = ${JSON.stringify(props)}</script>
       <style>${styles}</style>
     </head>
     <body>

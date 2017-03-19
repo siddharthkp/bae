@@ -91,8 +91,11 @@ const getInstance = config => {
       const Page = pages[route].default
 
       const render = (asyncProps = {}) => {
+
+        const props = Object.assign({}, {req: request}, {...asyncProps})
+
         /* get rendered component from ReactDOM */
-        const component = renderToString(<Page req={request} {...asyncProps}/>)
+        const component = renderToString(<Page {...props}/>)
 
         /* get styles */
         let styles
@@ -103,9 +106,9 @@ const getInstance = config => {
           styles = ''
         }
 
-        const props = JSON.stringify(Object.assign({}, {req: request}, {...asyncProps}))
         /* render html page */
-        res.send(template(component, styles, props, route))
+        const response = template(component, styles, props, route)
+        res.send(response)
       }
 
       /*

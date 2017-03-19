@@ -6,8 +6,8 @@ const Avatar = styled.span`
   height: 100px;
   width: 100px;
   border-radius: 50%;
-  border: 5px solid #000;
-  background-color: #000;
+  border: 5px solid #EEE;
+  background-color: #EEE;
   ${props => props.src ? `background-image: url(${props.src})` : ''};
   background-size: cover;
 `;

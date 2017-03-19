@@ -7,7 +7,7 @@ injectGlobal`
   body {
     margin: 0;
     padding: 0;
-    background: red;
+    background: #EEE;
     color: #FFF;
     font-family: 'Nunito', sans-serif;
   }

@@ -5,7 +5,7 @@ import A from '../library/anchor';
 import Blink from '../library/blink';
 
 const Loading = styled(A)`
-  background: #000;
+  background: #2CC1ED;
   width: 40%;
   height: 22px;
   margin-top: 10px;

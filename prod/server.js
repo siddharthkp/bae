@@ -1,6 +1,6 @@
 import express from 'express'
 import React from 'react'
-import {renderToString} from 'react-dom/server'
+import {renderToString} from 'react/dist/react.min'
 import fs from 'fs'
 import compression from 'compression'
 import webpack from 'webpack'

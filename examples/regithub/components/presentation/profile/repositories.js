@@ -1,9 +1,9 @@
-import React from 'react';
-import styled from 'styled-components';
-import Card from '../library/card';
-import Star from '../library/star';
-import Clear from '../library/clear';
-import Link from '../common/link';
+import React from 'react'
+import styled from 'styled-components'
+import Card from '../library/card'
+import Star from '../library/star'
+import Clear from '../library/clear'
+import Link from '../common/link'
 
 const RepoList = styled(Card)`
   margin: 10px auto;
@@ -14,7 +14,7 @@ const RepoList = styled(Card)`
   @media (max-width: 600px) {
     width: 90%;
   }
-`;
+`
 
 const Repo = styled.div`
   color: #777;
@@ -25,7 +25,7 @@ const Repo = styled.div`
   > span {
     float: right;
   }
-`;
+`
 
 export default (props) => <RepoList>
   {props.repos && props.repos.map((repo, index) => (
@@ -35,4 +35,4 @@ export default (props) => <RepoList>
       <Clear/>
     </Repo>
   ))}
-</RepoList>;
+</RepoList>

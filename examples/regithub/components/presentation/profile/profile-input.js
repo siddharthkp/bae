@@ -1,10 +1,10 @@
-import React from 'react';
-import styled from 'styled-components';
-import Card from '../library/card';
-import Input from '../library/input';
-import A from '../library/anchor';
-import Button from '../library/button';
-import Logo from '../common/logo';
+import React from 'react'
+import styled from 'styled-components'
+import Card from '../library/card'
+import Input from '../library/input'
+import A from '../library/anchor'
+import Button from '../library/button'
+import Logo from '../common/logo'
 
 const ProfileInput = styled(Card)`
   text-align: center;
@@ -26,13 +26,13 @@ const ProfileInput = styled(Card)`
     width: 100%;
     margin-top: 10px;
   }
-`;
+`
 
 export default class extends React.Component {
   constructor (props) {
-    super(props);
+    super(props)
     /* Set initial state */
-    this.state = {username: ''};
+    this.state = {username: ''}
   }
 
   /*
@@ -52,18 +52,18 @@ export default class extends React.Component {
         <A href={`/profile?user=${this.state.username}`}>
           <Button>See profile</Button>
         </A>
-      </ProfileInput>;
+      </ProfileInput>
   }
   /* Change state on change */
   onChange (event) {
-    this.setState({username: event.target.value});
+    this.setState({username: event.target.value})
   }
   /* Trigger submit on enter key */
   onKeyUp (event) {
-    if (event.which === 13) location.href = `/profile?user=${this.state.username}`;
+    if (event.which === 13) location.href = `/profile?user=${this.state.username}`
   }
   /* Pick value from input on focus */
   onFocus (event) {
-    this.setState({username: event.target.value});
+    this.setState({username: event.target.value})
   }
 }

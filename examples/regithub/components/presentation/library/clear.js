@@ -1,7 +1,7 @@
-import React from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components'
+
 const Clear = styled.div`
   clear: both;
-`;
+`
 
-export default Clear;
+export default Clear

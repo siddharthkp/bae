@@ -1,8 +1,8 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from 'react'
+import styled from 'styled-components'
 
-import A from '../library/anchor';
-import Blink from '../library/blink';
+import A from '../library/anchor'
+import Blink from '../library/blink'
 
 const Loading = styled(A)`
   background: #2CC1ED;
@@ -13,9 +13,9 @@ const Loading = styled(A)`
     content: 'x';
   }
   animation: ${Blink} 2s linear infinite;
-`;
+`
 
 export default (props) => {
-  if (props.url) return <A href={props.url}>{props.children}</A>;
-  else return <Loading/>;
-};
+  if (props.url) return <A href={props.url}>{props.children}</A>
+  else return <Loading/>
+}

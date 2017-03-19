@@ -1,10 +1,10 @@
-import React from 'react';
-import styled from 'styled-components';
-import Card from '../library/card';
-import Link from '../common/link';
+import React from 'react'
+import styled from 'styled-components'
+import Card from '../library/card'
+import Link from '../common/link'
 
-import Avatar from './avatar';
-import Description from './description';
+import Avatar from './avatar'
+import Description from './description'
 
 const Profile = styled(Card)`
   text-align: center;
@@ -16,7 +16,7 @@ const Profile = styled(Card)`
   @media (max-width: 600px) {
     width: 90%;
   }
-`;
+`
 
 export default (props) => <Profile>
   <Avatar url={props.photo}/>
@@ -24,4 +24,4 @@ export default (props) => <Profile>
   <Link url={props.url}>{props.name}</Link>
   <br/>
   <Description content={props.bio || props.error}/>
-</Profile>;
+</Profile>

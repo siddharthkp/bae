@@ -1,17 +1,17 @@
-import React from 'react';
-import Nav from '../components/presentation/common/nav';
-import Profile from '../components/presentation/profile/profile';
-import RepoContainer from '../components/containers/repositoriesContainer.js';
-import getUser from '../api/user';
+import React from 'react'
+import Nav from '../components/presentation/common/nav'
+import Profile from '../components/presentation/profile/profile'
+import RepoContainer from '../components/containers/repositoriesContainer.js'
+import getUser from '../api/user'
 
 export default class extends React.Component {
   constructor (props) {
-    super(props);
-    let username = props.req.query.user;
-    this.state = {username};
+    super(props)
+    let username = props.req.query.user
+    this.state = {username}
   }
   asyncComponentWillMount () {
-    let username = this.state.username;
+    let username = this.state.username
     return getUser(username)
   }
   render () {
@@ -20,7 +20,7 @@ export default class extends React.Component {
       <Nav/>
       <Profile {...this.props}/>
       <RepoContainer {...this.props}/>
-    </div>);
+    </div>)
 
   }
 }

@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from 'react'
+import styled from 'styled-components'
 
 const Avatar = styled.span`
   display: inline-block;
@@ -10,6 +10,6 @@ const Avatar = styled.span`
   background-color: #EEE;
   ${props => props.src ? `background-image: url(${props.src})` : ''};
   background-size: cover;
-`;
+`
 
-export default (props) => <Avatar src={props.url}/>;
+export default (props) => <Avatar src={props.url}/>

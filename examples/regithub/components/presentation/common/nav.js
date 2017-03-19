@@ -1,7 +1,7 @@
-import React from 'react';
-import styled, {injectGlobal} from 'styled-components';
-import Logo from '../common/logo';
-import Helmet from "react-helmet";
+import React from 'react'
+import styled, {injectGlobal} from 'styled-components'
+import Logo from '../common/logo'
+import Helmet from "react-helmet"
 
 injectGlobal`
   body {
@@ -11,7 +11,7 @@ injectGlobal`
     color: #FFF;
     font-family: 'Nunito', sans-serif;
   }
-`;
+`
 
 const NavBar = styled.div`
   height: 30px;
@@ -22,7 +22,7 @@ const NavBar = styled.div`
   > img {
     height: 30px;
   }
-`;
+`
 
 const Nav = () => (
   <NavBar>
@@ -32,6 +32,6 @@ const Nav = () => (
     />
     <Logo/>
   </NavBar>
-);
+)
 
-export default Nav;
+export default Nav

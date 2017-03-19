@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components'
+
 const Input = styled.input`
   background: #FFF;
   border: 1px solid #DDD;
@@ -12,6 +12,6 @@ const Input = styled.input`
   &:hover, &:focus {
     border-color: #2CC1ED;
   }
-`;
+`
 
-export default Input;
+export default Input

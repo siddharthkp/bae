@@ -11,7 +11,8 @@
   "author": "siddharthkp",
   "license": "MIT",
   "dependencies": {
+    "axios": "0.15.3",
     "react-helmet": "4.0.0",
-    "reaqt": "1.2.2"
+    "reaqt": "^1.2.4"
   }
 }

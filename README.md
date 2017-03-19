@@ -7,6 +7,10 @@
 
 &nbsp;
 
+[![Build Status](https://travis-ci.org/siddharthkp/reaqt.svg?branch=master)](https://travis-ci.org/siddharthkp/reaqt)
+
+&nbsp;
+
 ### minimal setup
 ```
 npm install reaqt --save
@@ -79,7 +83,7 @@ export default class extends React.Component {
     this.state = {username: 'siddharthkp'}
   }
   asyncComponentWillMount () {
-    /* 
+    /*
       Return a promise.
       It will get resolved on the server and passed as props to the component.
     */

@@ -1,6 +1,6 @@
 {
   "name": "reaqt",
-  "version": "1.2.4",
+  "version": "1.2.5-0",
   "description": "react made easy",
   "main": "index.js",
   "bin": "index.js",

@@ -1,7 +1,7 @@
 {
   "name": "reaqt-example",
   "scripts": {
-    "app": "reaqt",
+    "app": "node ../index.js",
     "start": "node test.js"
   },
   "author": "siddharthkp",

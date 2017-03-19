@@ -1,0 +1,15 @@
+{
+  "name": "reaqt-example",
+  "scripts": {
+    "app": "reaqt",
+    "start": "node test.js"
+  },
+  "author": "siddharthkp",
+  "license": "MIT",
+  "dependencies": {
+    "benchmark": "2.1.3",
+    "cli-table2": "0.2.0",
+    "colors": "1.1.2",
+    "reaqt": "1.2.4"
+  }
+}

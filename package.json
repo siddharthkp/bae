@@ -7,7 +7,8 @@
   "homepage": "https://github.com/siddharthkp/reaqt#readme",
   "repository": "siddharthkp/reaqt",
   "scripts": {
-    "test": "eslint ."
+    "test": "eslint .",
+    "benchmarks": "node benchmark/test.js"
   },
   "keywords": [
     "react",

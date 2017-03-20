@@ -6,7 +6,7 @@ console.log(yellow('Running benchmarks...'))
 
 const options = '-o /dev/null -w %{time_starttransfer}:%{time_total} -s localhost:3000'.split(' ')
 
-const attempts = 5
+const attempts = 10
 
 const results = {
   ttfb: [],

@@ -1,8 +1,10 @@
-module.exports = (body, styles, props, page) => `
+import {template} from 'rapscallion'
+
+module.exports = (body, styles, props, page) => template`
   <!DOCTYPE html>
   <html>
     <head>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="width=device-width, initial-scale=1"/>
       <script>window.INITIAL_PROPS = ${JSON.stringify(props)}</script>
       <style>${styles}</style>
     </head>

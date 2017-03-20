@@ -1,7 +1,7 @@
 {
   "name": "reaqt-example",
   "scripts": {
-    "app": "node ../index.js",
+    "app": "node ../index.js dev",
     "start": "node test.js"
   },
   "author": "siddharthkp",
@@ -10,6 +10,6 @@
     "benchmark": "2.1.3",
     "cli-table2": "0.2.0",
     "colors": "1.1.2",
-    "reaqt": "1.2.4"
+    "reaqt": "1.2.5-1"
   }
 }

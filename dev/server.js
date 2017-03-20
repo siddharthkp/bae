@@ -1,6 +1,6 @@
 import express from 'express'
 import React from 'react'
-import {renderToString} from 'react-dom/server'
+import {render} from 'rapscallion'
 import fs from 'fs'
 import clearRequire from 'clear-require'
 import {loading, info} from 'prettycli'
@@ -90,12 +90,12 @@ const getInstance = config => {
     if (pages[route]) {
       const Page = pages[route].default
 
-      const render = (asyncProps = {}) => {
+      const renderPage = (asyncProps = {}) => {
 
         const props = Object.assign({}, {req: request}, {...asyncProps})
 
         /* get rendered component from ReactDOM */
-        const component = renderToString(<Page {...props}/>)
+        const component = render(<Page {...props}/>)
 
         /* get styles */
         let styles
@@ -108,7 +108,7 @@ const getInstance = config => {
 
         /* render html page */
         const response = template(component, styles, props, route)
-        res.send(response)
+        response.toStream().pipe(res)
       }
 
       /*
@@ -118,8 +118,8 @@ const getInstance = config => {
       if (Page.prototype.asyncComponentWillMount) {
         const pageInstance = new Page({req: request})
         pageInstance.asyncComponentWillMount()
-        .then(asyncProps => render(asyncProps))
-      } else render()
+        .then(asyncProps => renderPage(asyncProps))
+      } else renderPage()
 
     } else res.status(404).end()
   })

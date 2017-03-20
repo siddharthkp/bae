@@ -6,7 +6,12 @@ if (!dev) process.env.NODE_ENV = 'production'
 require('babel-core/register')({
   ignore: /node_modules\/(?!reaqt)/,
   presets: ['es2015', 'react'],
-  plugins: ['transform-object-rest-spread']
+  plugins: [
+    'rapscallion/babel-plugin-server',
+    'transform-react-constant-elements',
+    'transform-react-inline-elements',
+    'transform-object-rest-spread'
+  ]
 })
 
 if (dev) require('./dev/server')

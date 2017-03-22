@@ -124,7 +124,7 @@ keep your images, fonts, etc. in a directory named `static`
 
 ### example
 
-Check out the [example application](https://github.com/siddharthkp/reaqt/tree/master/example) to see how simple this is.
+Check out the [example applications](https://github.com/siddharthkp/reaqt/tree/master/examples) to see how simple this is.
 
 &nbsp;
 

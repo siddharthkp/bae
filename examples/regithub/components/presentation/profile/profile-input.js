@@ -41,18 +41,18 @@ export default class extends React.Component {
   */
   render () {
     return <ProfileInput>
-        <Logo/>
-        <Input
-          autoFocus
-          placeholder='github username'
-          onChange={this.onChange.bind(this)}
-          onKeyUp={this.onKeyUp.bind(this)}
-          onFocus={this.onFocus.bind(this)}
-        />
-        <A href={`/profile?user=${this.state.username}`}>
-          <Button>See profile</Button>
-        </A>
-      </ProfileInput>
+      <Logo/>
+      <Input
+        autoFocus='true'
+        placeholder='github username'
+        onChange={this.onChange.bind(this)}
+        onKeyUp={this.onKeyUp.bind(this)}
+        onFocus={this.onFocus.bind(this)}
+      />
+      <A href={`/profile?user=${this.state.username}`}>
+        <Button>See profile</Button>
+      </A>
+    </ProfileInput>
   }
   /* Change state on change */
   onChange (event) {

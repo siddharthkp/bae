@@ -1,6 +1,6 @@
 import express from 'express'
 import React from 'react'
-import {renderToString} from 'react-dom/server'
+import {render} from 'rapscallion'
 import fs from 'fs'
 import compression from 'compression'
 import webpack from 'webpack'
@@ -54,9 +54,12 @@ compiler.run(() => {
     if (pages[route]) {
       const Page = pages[route].default
 
-      const render = (asyncProps = {}) => {
+      const renderPage = (asyncProps = {}) => {
+
+        const props = Object.assign({}, {req: request}, {...asyncProps})
+
         /* get rendered component from ReactDOM */
-        const component = renderToString(<Page req={request} {...asyncProps}/>)
+        const component = render(<Page {...props}/>)
 
         /* get styles */
         let styles
@@ -67,9 +70,9 @@ compiler.run(() => {
           styles = ''
         }
 
-        const props = JSON.stringify(Object.assign({}, {req: request}, {...asyncProps}))
         /* render html page */
-        res.send(template(component, styles, props, route))
+        const response = template(component, styles, props, route)
+        response.toStream().pipe(res)
       }
 
       /*
@@ -79,8 +82,8 @@ compiler.run(() => {
       if (Page.prototype.asyncComponentWillMount) {
         const pageInstance = new Page({req: request})
         pageInstance.asyncComponentWillMount()
-        .then(asyncProps => render(asyncProps))
-      } else render()
+        .then(asyncProps => renderPage(asyncProps))
+      } else renderPage()
 
     } else res.status(404).end()
   })

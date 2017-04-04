@@ -1,0 +1,97 @@
+{
+  "name": "siddharthkp/reaqt",
+  "version": "0.1.4",
+  "libraries": {
+    "xv": "^1.1.25"
+  },
+  "title": "reaqt",
+  "branch": "master",
+  "style": {
+    "name": "Future",
+    "componentSet": {
+      "nav": "nav/BasicNav",
+      "header": "header/BannerHeader",
+      "article": "article/BasicArticle",
+      "footer": "footer/BasicFooter"
+    },
+    "fontFamily": "\"Avenir Next\", Helvetica, sans-serif",
+    "heading": {
+      "fontWeight": 500,
+      "textTransform": "uppercase",
+      "letterSpacing": "0.2em"
+    },
+    "alternativeText": {
+      "textTransform": "uppercase",
+      "fontWeight": 400,
+      "letterSpacing": "0.2em",
+      "opacity": 0.75
+    },
+    "colors": {
+      "text": "#333",
+      "background": "#fff",
+      "primary": "#666",
+      "secondary": "#888",
+      "highlight": "#1f80ff",
+      "muted": "#f6f6f6",
+      "border": "#eee"
+    },
+    "layout": {
+      "centered": true,
+      "maxWidth": 1024,
+      "bannerHeight": "80vh"
+    }
+  },
+  "content": [
+    {
+      "component": "nav",
+      "links": [
+        {
+          "href": "https://github.com/siddharthkp/reaqt",
+          "text": "GitHub"
+        },
+        {
+          "href": "https://npmjs.com/package/reaqt",
+          "text": "npm"
+        }
+      ]
+    },
+    {
+      "component": "header",
+      "heading": "reaqt",
+      "subhead": "react made easy",
+      "children": [
+        {
+          "component": "ui/TweetButton",
+          "text": "reaqt: react made easy",
+          "url": null
+        },
+        {
+          "component": "ui/GithubButton",
+          "user": "siddharthkp",
+          "repo": "reaqt"
+        }
+      ],
+      "text": "v1.2.5-0"
+    },
+    {
+      "component": "article",
+      "metadata": {
+        "source": "github.readme"
+      },
+      "html": "<p>\n  <img src=\"https://raw.githubusercontent.com/siddharthkp/reaqt/master/art/reaqt.png\">\n  <br><br>\n  react made easy\n  <br><br>\n</p>\n\n<p>&#xA0;</p>\n<p><a href=\"https://travis-ci.org/siddharthkp/reaqt\"><img src=\"https://travis-ci.org/siddharthkp/reaqt.svg?branch=master\"></a></p>\n<p>&#xA0;</p>\n<h3>minimal setup</h3>\n<pre>npm <span class=\"hljs-keyword\">install</span> reaqt <span class=\"hljs-comment\">--save</span></pre><p>Add these 2 lines in your <code>package.json</code></p>\n<pre>&quot;scripts&quot;: {\n  &quot;dev&quot;: &quot;reaqt dev&quot;,\n  &quot;start&quot;: &quot;reaqt&quot;\n}</pre><p>Start the dev server with <code>npm run dev</code>. You just setup server rendering with hot module replacement and hot reload!</p>\n<p>&#xA0;</p>\n<h3>pages</h3>\n<p>Make pages like it&apos;s the 90s.\n&#xA0;</p>\n<ul>\n<li><p>pages are routes: <code>pages/about</code> renders <code>/about</code> of your website</p>\n</li>\n<li><p>pages are rendered on the server</p>\n</li>\n<li><p>built in code splitting, each page gets it&apos;s own <code>page.js</code></p>\n</li>\n<li><p>code shared between pages is served as <code>common.js</code> for long term caching</p>\n</li>\n<li><p><code>pages/home.js</code> renders the homepage <code>/</code></p>\n</li>\n<li><p><a href=\"https://rauchg.com/2014/7-principles-of-rich-web-applications#server-rendered-pages-are-not-optional\">why, you ask?</a></p>\n</li>\n</ul>\n<p>&#xA0;</p>\n<pre><span class=\"hljs-keyword\">import</span> React <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&apos;react&apos;</span>\n\n<span class=\"hljs-keyword\">export</span> <span class=\"hljs-keyword\">default</span> <span class=\"hljs-class\"><span class=\"hljs-keyword\">class</span> <span class=\"hljs-keyword\">extends</span> <span class=\"hljs-title\">React</span>.<span class=\"hljs-title\">Component</span> </span>{\n  <span class=\"hljs-keyword\">constructor</span> (props) {\n    <span class=\"hljs-keyword\">super</span>(props)\n    <span class=\"hljs-keyword\">this</span>.state = {<span class=\"hljs-attr\">message</span>: <span class=\"hljs-string\">&apos;hello&apos;</span>} <span class=\"hljs-comment\">// rendered on the server</span>\n  }\n  componentDidMount () {\n    <span class=\"hljs-keyword\">this</span>.setState({<span class=\"hljs-attr\">message</span>: <span class=\"hljs-string\">&apos;hello world&apos;</span>}) <span class=\"hljs-comment\">// updated on the browser</span>\n  }\n  render () {\n    <span class=\"hljs-keyword\">return</span> <span class=\"xml\"><span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">div</span>&gt;</span>{this.state.message}<span class=\"hljs-tag\">&lt;/<span class=\"hljs-name\">div</span>&gt;</span></span>\n  }\n}</pre><p>&#xA0;</p>\n<h3>asyncComponentWillMount</h3>\n<p>React has a lifecycle method that get&apos;s called on the server <code>componentWillMount</code> that can be used to set data for server rendering. But, it <a href=\"https://github.com/facebook/react/issues/1739\">does not support</a> asynchronous data fetching before rendering the component.</p>\n<p>reaqt introduces a new lifecycle method <strong>to pages</strong> that runs only on the server.</p>\n<pre><span class=\"hljs-keyword\">import</span> React <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&apos;react&apos;</span>\n\n<span class=\"hljs-keyword\">export</span> <span class=\"hljs-keyword\">default</span> <span class=\"hljs-class\"><span class=\"hljs-keyword\">class</span> <span class=\"hljs-keyword\">extends</span> <span class=\"hljs-title\">React</span>.<span class=\"hljs-title\">Component</span> </span>{\n  <span class=\"hljs-keyword\">constructor</span> (props) {\n    <span class=\"hljs-keyword\">super</span>(props)\n    <span class=\"hljs-keyword\">this</span>.state = {<span class=\"hljs-attr\">username</span>: <span class=\"hljs-string\">&apos;siddharthkp&apos;</span>}\n  }\n  asyncComponentWillMount () {\n    <span class=\"hljs-comment\">/*\n      Return a promise.\n      It will get resolved on the server and passed as props to the component.\n    */</span>\n    <span class=\"hljs-keyword\">return</span> axios.get(<span class=\"hljs-string\">`https://api.github.com/users/<span class=\"hljs-subst\">${<span class=\"hljs-keyword\">this</span>.state.username}</span>`</span>)\n  }\n  render () {\n    <span class=\"hljs-keyword\">return</span> <span class=\"xml\"><span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">div</span>&gt;</span>{this.props.bio}<span class=\"hljs-tag\">&lt;/<span class=\"hljs-name\">div</span>&gt;</span></span>\n  }\n}</pre><p>&#xA0;</p>\n<h3>components</h3>\n<p>the usual, nothing special here.</p>\n<p>&#xA0;</p>\n<h3>styling</h3>\n<p>comes with <a href=\"https://github.com/styled-components/styled-components\">styled-components</a> which gets rendered on the server.</p>\n<p>&#xA0;</p>\n<h3>static assets</h3>\n<p>keep your images, fonts, etc. in a directory named <code>static</code></p>\n<p>&#xA0;</p>\n<h3>production</h3>\n<p><code>npm start</code> will compile, optimize and serve your app.</p>\n<p>&#xA0;</p>\n<h3>example</h3>\n<p>Check out the <a href=\"https://github.com/siddharthkp/reaqt/tree/master/examples\">example applications</a> to see how simple this is.</p>\n<p>&#xA0;</p>\n<h3>like it?</h3>\n<p>:star: this repo</p>\n<p>&#xA0;</p>\n<h3>todo</h3>\n<ul>\n<li>easy api for lazy loading components</li>\n<li>server worker support</li>\n<li>make first build faster</li>\n</ul>\n<p>&#xA0;</p>\n<h3>license</h3>\n<p>MIT &#xA9; <a href=\"https://github.com/siddharthkp\">siddharthkp</a></p>\n"
+    },
+    {
+      "component": "footer",
+      "links": [
+        {
+          "href": "https://github.com/siddharthkp/reaqt",
+          "text": "GitHub"
+        },
+        {
+          "href": "https://github.com/siddharthkp",
+          "text": "siddharthkp"
+        }
+      ]
+    }
+  ]
+}

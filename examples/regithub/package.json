@@ -13,7 +13,8 @@
   "dependencies": {
     "axios": "0.15.3",
     "react-helmet": "4.0.0",
-    "reaqt": "1.2.5-3"
   },
   "devDependencies": {}
+    "reaqt": "1.2.4"
+  }
 }

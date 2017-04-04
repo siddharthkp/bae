@@ -3,7 +3,7 @@ import styled from 'styled-components'
 const Star = styled.span`
   margin: 10px;
   &::after {
-    content: ' ★';
+    content: ' \\2605';
     color: gold;
   }
 `

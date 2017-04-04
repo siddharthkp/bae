@@ -12,10 +12,8 @@
   "license": "MIT",
   "dependencies": {
     "axios": "0.15.3",
-    "rapscallion": "2.1.5",
     "react-helmet": "4.0.0",
-    "reaqt": "1.2.5-1",
-    "styled-components": "2.0.0-8"
+    "reaqt": "1.2.5-3"
   },
   "devDependencies": {}
 }

@@ -1,6 +1,6 @@
 const spawnSync = require('child_process').spawnSync
 const Table = require('cli-table2')
-const {yellow} = require('colors/safe')
+const {yellow, red} = require('colors/safe')
 
 console.log(yellow('Running benchmarks...'))
 
@@ -40,4 +40,9 @@ table.push(
   .map(text => yellow(text))
 )
 
-console.log(table.toString())
+if (average(results.ttfb)) console.log(table.toString())
+else console.log(red(`
+  Seems like the sample application is not running.
+
+  Run it in parallel 'npm run app'
+`))

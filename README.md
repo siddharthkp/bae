@@ -38,6 +38,8 @@ Make pages like it's the 90s.
 
 - pages are rendered on the server
 
+- pages are streamed to the browser for quick time-to-first-byte
+
 - built in code splitting, each page gets it's own `page.js`
 
 - code shared between pages is served as `common.js` for long term caching

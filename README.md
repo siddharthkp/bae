@@ -12,6 +12,8 @@
 &nbsp;
 
 ### minimal setup
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/siddharthkp/reaqt.svg)](https://greenkeeper.io/)
 ```
 npm install reaqt --save
 ```

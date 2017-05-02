@@ -94,8 +94,8 @@ const getInstance = config => {
 
         const props = Object.assign({}, {req: request}, {...asyncProps})
 
-        /* get rendered component from ReactDOM */
-        const component = render(<Page {...props}/>)
+        /* get componentRenderer */
+        const componentRenderer = render(<Page {...props}/>)
 
         /* get styles */
         let styles
@@ -107,8 +107,8 @@ const getInstance = config => {
         }
 
         /* render html page */
-        const response = template(component, styles, props, route)
-        response.toStream().pipe(res)
+        const responseRenderer = template(componentRenderer, styles, props, route)
+        responseRenderer.toStream().pipe(res)
       }
 
       /*

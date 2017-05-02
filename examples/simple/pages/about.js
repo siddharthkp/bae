@@ -1,3 +1,8 @@
 import React from 'react'
+import styled from 'styled-components'
 
-export default () => <div>about</div>
+const BlueText = styled.div`
+  color: blue;
+`
+
+export default () => <BlueText>about</BlueText>

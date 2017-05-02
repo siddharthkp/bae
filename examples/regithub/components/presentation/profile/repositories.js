@@ -27,12 +27,15 @@ const Repo = styled.div`
   }
 `
 
-export default (props) => <RepoList>
-  {props.repos && props.repos.map((repo, index) => (
-    <Repo key={index}>
-      <Link url={repo.url}>{repo.name}</Link>
-      <Star>{repo.stars}</Star>
-      <Clear/>
-    </Repo>
-  ))}
-</RepoList>
+export default props => (
+  <RepoList>
+    {props.repos &&
+      props.repos.map((repo, index) => (
+        <Repo key={index}>
+          <Link url={repo.url}>{repo.name}</Link>
+          <Star>{repo.stars}</Star>
+          <Clear />
+        </Repo>
+      ))}
+  </RepoList>
+)

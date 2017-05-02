@@ -15,7 +15,7 @@ const Loading = styled(A)`
   animation: ${Blink} 2s linear infinite;
 `
 
-export default (props) => {
+export default props => {
   if (props.url) return <A href={props.url}>{props.children}</A>
-  else return <Loading/>
+  else return <Loading />
 }

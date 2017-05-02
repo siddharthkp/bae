@@ -29,41 +29,44 @@ const ProfileInput = styled(Card)`
 `
 
 export default class extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     /* Set initial state */
-    this.state = {username: ''}
+    this.state = { username: '' }
   }
 
   /*
     Compose presentation components inside our
     ProfileInput components
   */
-  render () {
-    return <ProfileInput>
-      <Logo/>
-      <Input
-        autoFocus='true'
-        placeholder='github username'
-        onChange={this.onChange.bind(this)}
-        onKeyUp={this.onKeyUp.bind(this)}
-        onFocus={this.onFocus.bind(this)}
-      />
-      <A href={`/profile?user=${this.state.username}`}>
-        <Button>See profile</Button>
-      </A>
-    </ProfileInput>
+  render() {
+    return (
+      <ProfileInput>
+        <Logo />
+        <Input
+          autoFocus="true"
+          placeholder="github username"
+          onChange={this.onChange.bind(this)}
+          onKeyUp={this.onKeyUp.bind(this)}
+          onFocus={this.onFocus.bind(this)}
+        />
+        <A href={`/profile?user=${this.state.username}`}>
+          <Button>See profile</Button>
+        </A>
+      </ProfileInput>
+    )
   }
   /* Change state on change */
-  onChange (event) {
-    this.setState({username: event.target.value})
+  onChange(event) {
+    this.setState({ username: event.target.value })
   }
   /* Trigger submit on enter key */
-  onKeyUp (event) {
-    if (event.which === 13) location.href = `/profile?user=${this.state.username}`
+  onKeyUp(event) {
+    if (event.which === 13)
+      location.href = `/profile?user=${this.state.username}`
   }
   /* Pick value from input on focus */
-  onFocus (event) {
-    this.setState({username: event.target.value})
+  onFocus(event) {
+    this.setState({ username: event.target.value })
   }
 }

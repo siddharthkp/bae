@@ -1,14 +1,14 @@
 import React from 'react'
 
 export default class extends React.Component {
-  constructor () {
+  constructor() {
     super()
-    this.state = {message: 'hello'}
+    this.state = { message: 'hello' }
   }
-  componentDidMount () {
-    setTimeout( () => this.setState({message: 'hello world'}), 1000)
+  componentDidMount() {
+    setTimeout(() => this.setState({ message: 'hello world' }), 1000)
   }
-  render () {
+  render() {
     return <div>{this.state.message}</div>
   }
 }

@@ -1,13 +1,13 @@
 import express from 'express'
 import React from 'react'
-import {render} from 'rapscallion'
+import { render } from 'rapscallion'
 import fs from 'fs'
 import clearRequire from 'clear-require'
-import {loading, info} from 'prettycli'
+import { loading, info } from 'prettycli'
 import webpack from 'webpack'
 import webpackDevMiddleware from 'webpack-dev-middleware'
 import webpackHotMiddleware from 'webpack-hot-middleware'
-import {resolve} from 'path'
+import { resolve } from 'path'
 import styleSheet from 'styled-components/lib/models/StyleSheet'
 import chokidar from 'chokidar'
 import dependencyTree from 'dependency-tree'
@@ -18,17 +18,26 @@ import config from './webpack.config'
 
 /* generate dependency tree */
 let tree = {}
-const generateTree = files => files.map(file => tree[file] = dependencyTree.toList({
-  filename: resolve(`./pages/${file}`),
-  directory: '/'
-}))
+const generateTree = files =>
+  files.map(
+    file =>
+      (tree[file] = dependencyTree.toList({
+        filename: resolve(`./pages/${file}`),
+        directory: '/'
+      }))
+  )
 
 /* generate pages cache */
 let pages = {}
 const getPages = () => {
   const files = fs.readdirSync('./pages')
-  files.filter(file => file.endsWith('.js')).filter(file => !file.endsWith('.test.js'))
-  .map(file => pages[file.replace('.js', '')] = require(resolve(`./pages/${file}`)))
+  files
+    .filter(file => file.endsWith('.js'))
+    .filter(file => !file.endsWith('.test.js'))
+    .map(
+      file =>
+        (pages[file.replace('.js', '')] = require(resolve(`./pages/${file}`)))
+    )
   generateTree(files)
 }
 
@@ -52,7 +61,6 @@ const uncache = path => {
 }
 
 const getInstance = config => {
-
   /* create an express instance */
   const instance = express()
 
@@ -91,11 +99,10 @@ const getInstance = config => {
       const Page = pages[route].default
 
       const renderPage = (asyncProps = {}) => {
-
-        const props = Object.assign({}, {req: request}, {...asyncProps})
+        const props = Object.assign({}, { req: request }, { ...asyncProps })
 
         /* get rendered component from ReactDOM */
-        const component = render(<Page {...props}/>)
+        const component = render(<Page {...props} />)
 
         /* get styles */
         let styles
@@ -116,11 +123,11 @@ const getInstance = config => {
         fetch data and return it as props
       */
       if (Page.prototype.asyncComponentWillMount) {
-        const pageInstance = new Page({req: request})
-        pageInstance.asyncComponentWillMount()
-        .then(asyncProps => renderPage(asyncProps))
+        const pageInstance = new Page({ req: request })
+        pageInstance
+          .asyncComponentWillMount()
+          .then(asyncProps => renderPage(asyncProps))
       } else renderPage()
-
     } else res.status(404).end()
   })
 
@@ -147,7 +154,7 @@ const getInstance = config => {
 let server = getInstance(config)
 
 /* replace server instance */
-const replaceInstance = (config) => {
+const replaceInstance = config => {
   /* close ongoing connections before replacing instance */
   server.close(() => {
     server = {}
@@ -157,8 +164,10 @@ const replaceInstance = (config) => {
 
 /* define watchers */
 
-chokidar.watch('**/*.js', {ignored: ['node_modules']})
-.on('change', uncache).on('unlink', uncache)
+chokidar
+  .watch('**/*.js', { ignored: ['node_modules'] })
+  .on('change', uncache)
+  .on('unlink', uncache)
 
 const pageWatcher = chokidar.watch('pages/*.js').on('ready', () => {
   pageWatcher.on('add', () => {
@@ -166,7 +175,7 @@ const pageWatcher = chokidar.watch('pages/*.js').on('ready', () => {
     getPages()
 
     /* get updated entry points */
-    config.entry = entryPoints({hot: true})
+    config.entry = entryPoints({ hot: true })
 
     /* replace server instance */
     replaceInstance(config)

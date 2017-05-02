@@ -1,4 +1,4 @@
-import {template} from 'rapscallion'
+import { template } from 'rapscallion'
 
 module.exports = (body, styles, props, page) => template`
   <!DOCTYPE html>

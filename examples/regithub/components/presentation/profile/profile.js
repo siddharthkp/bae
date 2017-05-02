@@ -18,10 +18,12 @@ const Profile = styled(Card)`
   }
 `
 
-export default (props) => <Profile>
-  <Avatar url={props.photo}/>
-  <br/>
-  <Link url={props.url}>{props.name}</Link>
-  <br/>
-  <Description content={props.bio || props.error}/>
-</Profile>
+export default props => (
+  <Profile>
+    <Avatar url={props.photo} />
+    <br />
+    <Link url={props.url}>{props.name}</Link>
+    <br />
+    <Description content={props.bio || props.error} />
+  </Profile>
+)

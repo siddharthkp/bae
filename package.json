@@ -8,7 +8,8 @@
   "repository": "siddharthkp/reaqt",
   "scripts": {
     "test": "eslint .",
-    "benchmarks": "node benchmark/test.js"
+    "benchmarks": "node benchmark/test.js",
+    "precommit": "lint-staged"
   },
   "keywords": [
     "react",
@@ -60,7 +61,10 @@
     "eslint-config-standard": "6.2.1",
     "eslint-plugin-promise": "3.4.0",
     "eslint-plugin-react": "6.10.0",
-    "eslint-plugin-standard": "2.0.1"
+    "eslint-plugin-standard": "2.0.1",
+    "husky": "0.13.3",
+    "lint-staged": "3.4.0",
+    "prettier": "1.2.2"
   },
   "engines": {
     "node": ">= 6.0.0",
@@ -68,5 +72,11 @@
   },
   "bugs": {
     "url": "https://github.com/siddharthkp/reaqt/issues"
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write --single-quote --no-semi",
+      "git add"
+    ]
   }
 }

@@ -5,4 +5,4 @@ const Description = styled.div`
   font-size: 12px;
 `
 
-export default (props) => <Description>{props.content}</Description>
+export default props => <Description>{props.content}</Description>

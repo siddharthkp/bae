@@ -1,7 +1,7 @@
 import React from 'react'
-import styled, {injectGlobal} from 'styled-components'
+import styled, { injectGlobal } from 'styled-components'
 import Logo from '../common/logo'
-import Helmet from "react-helmet"
+import Helmet from 'react-helmet'
 
 injectGlobal`
   body {
@@ -27,10 +27,15 @@ const NavBar = styled.div`
 const Nav = () => (
   <NavBar>
     <Helmet
-      title='regithub'
-      link={[{href: 'https://fonts.googleapis.com/css?family=Nunito', rel: 'stylesheet'}]}
+      title="regithub"
+      link={[
+        {
+          href: 'https://fonts.googleapis.com/css?family=Nunito',
+          rel: 'stylesheet'
+        }
+      ]}
     />
-    <Logo/>
+    <Logo />
   </NavBar>
 )
 

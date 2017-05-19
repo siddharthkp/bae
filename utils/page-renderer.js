@@ -1,4 +1,5 @@
-module.exports = path => `
+module.exports = path =>
+  `
   import React from 'react'
   import {render} from 'react-dom'
   import Page from '${path}'

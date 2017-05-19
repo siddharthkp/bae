@@ -38,13 +38,15 @@ Make pages like it's the 90s.
 
 - pages are rendered on the server
 
-- built in code splitting, each page gets it's own `page.js`
+- pages are `streamed` to the browser for quick `time-to-first-byte`
+
+- built in code splitting, each page gets it's own _`page.js`_
 
 - code shared between pages is served as `common.js` for long term caching
 
 - `pages/home.js` renders the homepage `/`
 
-- [why, you ask?](https://rauchg.com/2014/7-principles-of-rich-web-applications#server-rendered-pages-are-not-optional)
+- [why is this important?](https://rauchg.com/2014/7-principles-of-rich-web-applications#server-rendered-pages-are-not-optional)
 
 &nbsp;
 

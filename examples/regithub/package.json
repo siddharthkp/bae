@@ -12,7 +12,9 @@
   "license": "MIT",
   "dependencies": {
     "axios": "0.15.3",
-    "react-helmet": "4.0.0",
-    "reaqt": "^1.2.4"
+    "react-helmet": "4.0.0"
+  },
+  "devDependencies": {
+    "reaqt": "1.2.4"
   }
 }

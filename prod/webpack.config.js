@@ -15,6 +15,8 @@ module.exports = {
     }),
     new webpack.optimize.UglifyJsPlugin({ minimize: true }),
     new webpack.optimize.AggressiveMergingPlugin(),
-    new webpack.optimize.CommonsChunkPlugin({ name: 'common' })
+    new webpack.optimize.CommonsChunkPlugin({ name: 'common' }),
+    new webpack.IgnorePlugin(/react-native/),
+    new webpack.IgnorePlugin(/styled-components\/native/)
   ]
 }

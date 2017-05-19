@@ -19,6 +19,8 @@ module.exports = {
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({ name: 'common' }),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NamedModulesPlugin()
+    new webpack.NamedModulesPlugin(),
+    new webpack.IgnorePlugin(/react-native/),
+    new webpack.IgnorePlugin(/styled-components\/native/)
   ]
 }

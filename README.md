@@ -138,6 +138,7 @@ Check out the [example applications](https://github.com/siddharthkp/reaqt/tree/m
 
 ### todo
 
+- init by default
 - easy api for lazy loading components
 - server worker support
 - make first build faster

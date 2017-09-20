@@ -1,6 +1,6 @@
 {
   "name": "bae",
-  "version": "1.3.2",
+  "version": "1.4.0",
   "description": "react made easy",
   "main": "index.js",
   "bin": "index.js",

@@ -20,7 +20,12 @@
     "hot module replacement",
     "bae"
   ],
-  "files": ["dev", "prod", "utils", "index.js"],
+  "files": [
+    "dev",
+    "prod",
+    "utils",
+    "index.js"
+  ],
   "author": "siddharthkp",
   "license": "MIT",
   "dependencies": {
@@ -70,6 +75,9 @@
     "url": "https://github.com/siddharthkp/bae/issues"
   },
   "lint-staged": {
-    "*.js": ["prettier --write --single-quote --no-semi", "git add"]
+    "*.js": [
+      "prettier --write --single-quote --no-semi",
+      "git add"
+    ]
   }
 }

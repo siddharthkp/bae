@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/siddharthkp/reaqt/master/art/reaqt.png" height="100px"/>
+  <img src="https://raw.githubusercontent.com/siddharthkp/bae/master/art/bae.png" height="100px"/>
   <br><br>
   react made easy
   <br><br>
@@ -7,13 +7,13 @@
 
 &nbsp;
 
-[![Build Status](https://travis-ci.org/siddharthkp/reaqt.svg?branch=master)](https://travis-ci.org/siddharthkp/reaqt)
+[![Build Status](https://travis-ci.org/siddharthkp/bae.svg?branch=master)](https://travis-ci.org/siddharthkp/bae)
 
 &nbsp;
 
 ### minimal setup
 ```
-npm install reaqt --save
+npm install bae --save
 ```
 
 
@@ -21,8 +21,8 @@ Add these 2 lines in your `package.json`
 
 ```json
 "scripts": {
-  "dev": "reaqt dev",
-  "start": "reaqt"
+  "dev": "bae dev",
+  "start": "bae"
 }
 ```
 
@@ -74,7 +74,7 @@ export default class extends React.Component {
 
 React has a lifecycle method that get's called on the server `componentWillMount` that can be used to set data for server rendering. But, it [does not support](https://github.com/facebook/react/issues/1739) asynchronous data fetching before rendering the component.
 
-reaqt introduces a new lifecycle method **to pages** that runs only on the server.
+bae introduces a new lifecycle method **to pages** that runs only on the server.
 
 ```js
 import React from 'react'
@@ -126,7 +126,7 @@ keep your images, fonts, etc. in a directory named `static`
 
 ### example
 
-Check out the [example applications](https://github.com/siddharthkp/reaqt/tree/master/examples) to see how simple this is.
+Check out the [example applications](https://github.com/siddharthkp/bae/tree/master/examples) to see how simple this is.
 
 &nbsp;
 

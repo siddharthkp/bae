@@ -4,7 +4,7 @@ const dev = process.argv[2] === 'dev'
 if (!dev) process.env.NODE_ENV = 'production'
 
 require('babel-core/register')({
-  ignore: /node_modules\/(?!reaqt)/,
+  ignore: /node_modules\/(?!bae)/,
   presets: ['es2015', 'react'],
   plugins: [
     'rapscallion/babel-plugin-server',

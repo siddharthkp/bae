@@ -1,12 +1,12 @@
 {
-  "name": "reaqt-example",
+  "name": "bae-example",
   "scripts": {
-    "dev": "reaqt dev",
-    "start": "reaqt"
+    "dev": "bae dev",
+    "start": "bae"
   },
   "author": "siddharthkp",
   "license": "MIT",
   "dependencies": {
-    "reaqt": "^1.2.4"
+    "bae": "^1.2.4"
   }
 }

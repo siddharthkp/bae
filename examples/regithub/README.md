@@ -1,7 +1,7 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/siddharthkp/reaqt/master/art/reaqt.png" height="100px"/>
+  <img src="https://raw.githubusercontent.com/siddharthkp/bae/master/art/bae.png" height="100px"/>
   <br><br>
-  example for using reaqt
+  example for using bae
   <br><br>
 </p>
 
@@ -10,7 +10,7 @@
 ### minimal setup
 
 ```
-npm install reaqt --save
+npm install bae --save
 ```
 
 &nbsp;

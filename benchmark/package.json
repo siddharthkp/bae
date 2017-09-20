@@ -1,5 +1,5 @@
 {
-  "name": "reaqt-example",
+  "name": "bae-example",
   "scripts": {
     "app": "node ../index.js",
     "debug": "node ../index.js dev",

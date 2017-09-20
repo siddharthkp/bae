@@ -1,11 +1,11 @@
 {
-  "name": "reaqt",
+  "name": "bae",
   "version": "1.3.2",
   "description": "react made easy",
   "main": "index.js",
   "bin": "index.js",
-  "homepage": "https://github.com/siddharthkp/reaqt#readme",
-  "repository": "siddharthkp/reaqt",
+  "homepage": "https://github.com/siddharthkp/bae#readme",
+  "repository": "siddharthkp/bae",
   "scripts": {
     "test": "eslint .",
     "benchmarks": "node benchmark/test.js",
@@ -17,14 +17,10 @@
     "server rendering",
     "ssr",
     "code splitting",
-    "hot module replacement"
+    "hot module replacement",
+    "bae"
   ],
-  "files": [
-    "dev",
-    "prod",
-    "utils",
-    "index.js"
-  ],
+  "files": ["dev", "prod", "utils", "index.js"],
   "author": "siddharthkp",
   "license": "MIT",
   "dependencies": {
@@ -71,12 +67,9 @@
     "npm": ">= 3.0.0"
   },
   "bugs": {
-    "url": "https://github.com/siddharthkp/reaqt/issues"
+    "url": "https://github.com/siddharthkp/bae/issues"
   },
   "lint-staged": {
-    "*.js": [
-      "prettier --write --single-quote --no-semi",
-      "git add"
-    ]
+    "*.js": ["prettier --write --single-quote --no-semi", "git add"]
   }
 }

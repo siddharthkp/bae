@@ -147,4 +147,10 @@ Check out the [example applications](https://github.com/siddharthkp/bae/tree/mas
 
 ### license
 
+&nbsp;
+
 MIT © [siddharthkp](https://github.com/siddharthkp)
+
+<a target='_blank' rel='nofollow' href='http://app.codesponsor.io/link/LhLT2c31ydJzdLUuSR9f8mCA/siddharthkp/bae'>
+  <img alt='Sponsor' width='888' height='68' src='http://app.codesponsor.io/embed/LhLT2c31ydJzdLUuSR9f8mCA/siddharthkp/bae.svg' />
+</a>

@@ -1,5 +1,6 @@
 {
   "name": "bae-example",
+  "version": "0.0.1",
   "scripts": {
     "dev": "bae dev",
     "start": "bae"
@@ -7,6 +8,6 @@
   "author": "siddharthkp",
   "license": "MIT",
   "dependencies": {
-    "bae": "^1.2.4"
+    "bae": "2.0.0"
   }
 }

@@ -41,7 +41,7 @@ const getPages = () => {
   generateTree(files)
 }
 
-loading('PAGES', 'Defining routes...')
+loading('PAGES', 'Really Defining routes...')
 getPages()
 
 /* uncache dependency tree on change */
